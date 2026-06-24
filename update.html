@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App | Update Task</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Todo App</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form>
+            <label for="todo-name">Name </label>
+            <input type="text" name="todo-name" id="todo-name" placeholder="Enter Task Name" required>
+            
+            <label for="todo-desc">Description </label>
+            <textarea name="todo-desc" id="todo-description" placeholder="(Optional) Enter Additional Details"></textarea>
+
+            <label for="start-date">Start Date</label>
+            <input type="date" name="start-date" id="start-date">
+
+            <label for="due-date">Due Date</label>
+            <input type="date" name="due-date" id="due-date">
+            <button type="submit" id="submit">Update Task</button>
+        </form>
+    </main>
+</body>
+<script src="js/update.js"></script>
+</html>
