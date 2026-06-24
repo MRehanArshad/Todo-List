@@ -9,6 +9,19 @@ for (key in Object.keys(localStorage)) {
 
 // For Searching
 
+document.getElementById('search-bar').addEventListener('input', () => {
+    let search_input = document.getElementById('search-bar').value;
+    let search_result = [];
+    search_result.push(task_list[0]);
+    
+    for (let i = 1; i < task_list.length; i++) {
+        if(task_list[i]['name'].toLowerCase().includes(search_input.toLowerCase())) {
+            search_result.push(task_list[i]);
+        }
+    }
+
+    display_item(search_result);
+})
 
 
 // For Displaying Todo
@@ -29,7 +42,7 @@ function getTaskElement(Task) {
         </div>
         <div class="view-detail">
             <button class="view-detail-btn" onclick="show_details(${Task['id']});"> View Details </button>
-            <button class="edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
+            <button class"edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
         </div>
     </div>
     `;
