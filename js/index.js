@@ -29,7 +29,7 @@ function getTaskElement(Task) {
         </div>
         <div class="view-detail">
             <button class="view-detail-btn" onclick="show_details(${Task['id']});"> View Details </button>
-            <button class"edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
+            <button class="edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
         </div>
     </div>
     `;
