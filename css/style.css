@@ -84,6 +84,7 @@ main {
     padding:10px;
     font-size: 16px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .task {
@@ -104,6 +105,7 @@ main {
     background-color: #ffcb00;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .edit {
@@ -112,4 +114,5 @@ main {
     background-color: #ed2222;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }

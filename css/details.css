@@ -1,0 +1,12 @@
+main .todo-details {
+    background-color: red;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: 2px solid black;
+}
