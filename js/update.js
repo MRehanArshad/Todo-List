@@ -28,8 +28,9 @@ document.getElementById('submit').addEventListener('click', (e)=>{
     let NewstartDate = document.getElementById('start-date').value;
     let NewdueDate = document.getElementById('due-date').value;
 
+    let error = false;
     if (!updated(NewtodoName, Newdescription, NewstartDate,NewdueDate)) {
-        console.log("No Value has updated");
+        error = true;
     } else {
         let Task = {
             name: NewtodoName,
@@ -38,5 +39,27 @@ document.getElementById('submit').addEventListener('click', (e)=>{
             dueDate: NewdueDate
         }
         writeToLocalStorage(Task);
+    }
+
+    if (error) {
+        document.getElementsByClassName("error-card")[0].classList.toggle('none');
+
+        let promise = new Promise(function(resolve, reject) {
+        setTimeout(()=>resolve("done"), 1000);
+        })
+
+        promise.then(
+            result=>{document.getElementsByClassName("error-card")[0].classList.toggle('none');}
+        )
+    } else {
+        document.getElementsByClassName("success-card")[0].classList.toggle('none');
+
+        let promise = new Promise(function(resolve, reject) {
+        setTimeout(()=>resolve("done"), 1000);
+        })
+
+        promise.then(
+            result=>{document.getElementsByClassName("success-card")[0].classList.toggle('none');}
+        )
     }
 });

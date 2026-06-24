@@ -1,3 +1,4 @@
+
 main form {
     display: flex;
     flex-direction: column;
@@ -45,4 +46,43 @@ input:focus, textarea:focus {
 
 #submit:hover {
     background-color: var(--hover-add-btn);
+}
+
+.success-card, .error-card{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    animation: popup 0.5s ease-in-out 1;
+}
+
+.success-card {
+    background-color: var(--success);
+}
+
+.error-card {
+    background-color: var(--error);
+}
+
+.success-card img, .error-card img {
+    height: 30px;
+    width: 30px;
+}
+
+@keyframes popup {
+    from {
+        right: -200px;
+    } to {
+        right: 10px;
+    }
+}
+
+.none {
+    display: none;
 }

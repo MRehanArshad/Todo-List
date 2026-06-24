@@ -8,6 +8,8 @@
     --view-detail-btn: #ffcb00;
     --edit-btn: #ed2222;
     --hover-add-btn: #10d627;
+    --success: #10d640;
+    --error: #ed2130;
 }
 
 * {

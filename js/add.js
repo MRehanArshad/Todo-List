@@ -32,4 +32,14 @@ document.getElementById('submit').addEventListener('click', (e)=> {
 
     // Write to Local Storage
     writeToLocalStorage(Task);
+
+    document.getElementsByClassName("success-card")[0].classList.toggle('none');
+
+    let promise = new Promise(function(resolve, reject) {
+        setTimeout(()=>resolve("done"), 1000);
+    })
+
+    promise.then(
+        result=>{document.getElementsByClassName("success-card")[0].classList.toggle('none');}
+    )
 });
