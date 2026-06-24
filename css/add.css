@@ -31,7 +31,7 @@ input:focus, textarea:focus {
 }
 
 #submit {
-    background-color: #149522;
+    background-color: var(--add-btn);
     outline: none;
     border: none;
     height: 40px;
@@ -44,5 +44,5 @@ input:focus, textarea:focus {
 }
 
 #submit:hover {
-    background-color: #10d627;
+    background-color: var(--hover-add-btn);
 }

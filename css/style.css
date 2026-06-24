@@ -1,3 +1,15 @@
+:root {
+    --blue-primary: #302dad;
+    --white-primary: white;
+    --blue-border: blue;
+    --black-border: black;
+    --coral-blue: #5d8dff;
+    --add-btn: #149522;
+    --edit-btn: #ffcb00;
+    --delete-btn: #ed2222;
+    --hover-add-btn: #10d627;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,17 +19,15 @@
 
 header {
     height: 3.3rem;
-    background-color: aliceblue;
-    color: black;
     font-size: x-large;
-    background-color: #302dad;
-    color: white;
+    background-color: var(--blue-primary);
+    color: var(--white-primary);
     padding: 10px;
 }
 
 header nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--white-primary);
     font-weight: 600;
 }
 
@@ -41,19 +51,19 @@ main {
     width: 100%;
     border-radius: 10px;
     outline: none;
-    border: 2px solid black;
+    border: 2px solid var(--black-border);
     padding: 10px;
     font-size: 15px;
     transition: all 0.3s ease;
 }
 
 #search-bar:focus{
-    border: 2px solid blue;
+    border: 2px solid var(--blue-border);
 }
 
 .todo-container {
     height: 70vh;
-    background-color: #5d8dff;
+    background-color: var(--coral-blue);
     border-radius: 10px;
     padding: 4px;
     display: flex;
@@ -66,7 +76,7 @@ main {
     height: 60vh;
     border-radius: 10px;
     overflow-y: scroll;
-    background-color: white;
+    background-color: var(--white-primary);
     padding: 4px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -76,9 +86,9 @@ main {
 
 .add-button a {
     text-decoration: none;
-    color: white;
+    color: var(--white-primary);
     font-weight: 700;
-    background-color: #149522;
+    background-color: var(--add-btn);
     display: block;
     width: 130px;
     padding:10px;
@@ -102,7 +112,7 @@ main {
 .view-detail-btn {
     outline: none;
     border: none;
-    background-color: #ffcb00;
+    background-color: var(--edit-btn);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -111,7 +121,7 @@ main {
 .edit {
     outline: none;
     border: none;
-    background-color: #ed2222;
+    background-color: var(--delete-btn);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
