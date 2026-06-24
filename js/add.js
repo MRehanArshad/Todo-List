@@ -42,4 +42,6 @@ document.getElementById('submit').addEventListener('click', (e)=> {
     promise.then(
         result=>{document.getElementsByClassName("success-card")[0].classList.toggle('none');}
     )
+
+    document.getElementsByTagName('form')[0].reset();
 });
