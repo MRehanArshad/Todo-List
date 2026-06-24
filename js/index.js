@@ -2,9 +2,9 @@ let todo_viewer = document.getElementById('todo-viewer');
 let task_list = [];
 
 for (key in Object.keys(localStorage)) {
-    if (!(key === "Last Key" || key === "click-id")) {
-        task_list.push(JSON.parse(localStorage.getItem(key)));
-    }
+    if (key == "Last Key" || key == "click-id") continue;
+
+    task_list.push(JSON.parse(localStorage.getItem(key)));
 }
 
 // For Searching
