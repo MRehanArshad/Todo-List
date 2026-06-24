@@ -9,7 +9,6 @@ function showTaskDetails(){
     description.innerHTML = object['description'];
     startDate.innerHTML = object['startDate'];
     endDate.innerHTML = object['dueDate'];
-    localStorage.removeItem("click-id");
 }
 
 showTaskDetails();
