@@ -5,8 +5,8 @@
     --black-border: black;
     --coral-blue: #5d8dff;
     --add-btn: #149522;
-    --edit-btn: #ffcb00;
-    --delete-btn: #ed2222;
+    --view-detail-btn: #ffcb00;
+    --edit-btn: #ed2222;
     --hover-add-btn: #10d627;
 }
 
@@ -112,7 +112,7 @@ main {
 .view-detail-btn {
     outline: none;
     border: none;
-    background-color: var(--edit-btn);
+    background-color: var(--view-detail-btn);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -121,7 +121,7 @@ main {
 .edit {
     outline: none;
     border: none;
-    background-color: var(--delete-btn);
+    background-color: var(--edit-btn);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;

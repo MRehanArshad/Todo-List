@@ -2,9 +2,9 @@ let todo_viewer = document.getElementById('todo-viewer');
 let task_list = [];
 
 for (key in Object.keys(localStorage)) {
-    if (key == "Last Key") continue;
-
-    task_list.push(JSON.parse(localStorage.getItem(key)));
+    if (!(key === "Last Key" || key === "click-id")) {
+        task_list.push(JSON.parse(localStorage.getItem(key)));
+    }
 }
 
 // For Searching
@@ -42,7 +42,7 @@ function getTaskElement(Task) {
         </div>
         <div class="view-detail">
             <button class="view-detail-btn" onclick="show_details(${Task['id']});"> View Details </button>
-            <button class"edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
+            <button class="edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
         </div>
     </div>
     `;
