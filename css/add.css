@@ -86,3 +86,15 @@ input:focus, textarea:focus {
 .none {
     display: none;
 }
+
+#details-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;   
+}
+
+.details-box{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
