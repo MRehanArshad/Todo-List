@@ -24,60 +24,69 @@
                 <h2>Primary Details</h2>
                 <label for="todo-name">Name </label>
                 <input type="text" name="todo-name" id="todo-name" placeholder="Enter Task Name" required>
-    
+
                 <label for="todo-desc">Description </label>
                 <textarea name="todo-desc" id="todo-description"
                     placeholder="(Optional) Enter Additional Details"></textarea>
-    
+
                 <label for="start-date">Start Date</label>
                 <input type="date" name="start-date" id="start-date" required>
-    
+
                 <label for="due-date">Due Date</label>
                 <input type="date" name="due-date" id="due-date" required>
             </div>
 
+            <hr>
+
             <div id="secondary-details" class="details-box">
                 <h2>Secondary Details</h2>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="">
+                <input type="email" name="email" id="email-input">
 
                 <label for="box-color">Choose Box Color for this Task</label>
                 <input type="color" name="box-color" id="box-color">
-    
-    
+
+
                 <label for="cover-image">Choose cover Image</label>
-                <input type="image" src="" alt="" name="cover-image">
-    
-                <label for="task-progress">Task Progress</label>
-                <input type="range" name="task-progress" id="task-progress">
+                <input type="file" src="" alt="" name="cover-image" id="cover-image" accept="image/*">
+
+                <label for="task-progress">Task Progress ( <span id="slider-output">0%</span> )</label>
+                <input type="range" name="task-progress" id="task-progress" min="0" max="100">
             </div>
+
+            <hr>
 
             <div id="additional-details" class="details-box">
                 <h2>Additional Details</h2>
                 <label for="mobile-number">Mobile Number</label>
                 <input type="tel" name="mobile-number" id="mobile-number">
-    
+
                 <label for="related-link">Enter related link (if any)</label>
                 <input type="url" name="related-link" id="related-link">
-    
-                <div id="task-notification">
-                    <label for="task-notification">Notification Method</label>
-                    <input type="checkbox" name="email-notification" id="">
-                    <label for="email-notification">Email</label>
-                    <input type="checkbox" name="sms-notfication" id="">
-                    <label for="email-notification">SMS</label>
+
+                <label for="task-notification">Notification Method</label>
+                <div id="task-notification" class="selection-box">
+                    <label for="email-notification">
+                        <input type="checkbox" name="notification" id="email-notification">Email
+                    </label>
+                    <label for="sms-notification">
+                        <input type="checkbox" name="notification" id="sms-notification">SMS
+                    </label>
                 </div>
-    
-                <div id="priority-selection">
-                    <label for="task-notification">Set priority</label>
-                    <input type="radio" name="high-priority" id="">
-                    <label for="high-priority">High</label>
-    
-                    <input type="radio" name="medium-priority" id="">
-                    <label for="medium-priority">Medium</label>
-    
-                    <input type="radio" name="low-priority" id="">
-                    <label for="low-priority">Low</label>
+
+                <label for="task-notification">Set priority</label>
+                <div id="priority-selection" class="selection-box">
+                    <label for="high-priority">
+                        <input type="radio" name="priority" id="high-priority">High
+                    </label>
+
+                    <label for="medium-priority">
+                        <input type="radio" name="priority" id="medium-priority">Medium
+                    </label>
+
+                    <label for="low-priority">
+                        <input type="radio" name="priority" id="low-priority">Low
+                    </label>
                 </div>
             </div>
 
