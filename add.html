@@ -10,6 +10,15 @@
 </head>
 
 <body>
+    <div class="success-modal none" id="success">
+        <div class="modal-options">
+            <h2>Task Added Sucessfully</h2>
+            <div class="modal-buttons">
+                <input type="button" value="Add Another" id="add-another-btn">
+                <input type="button" value="Go Back" id="go-back-btn">
+            </div>
+        </div>
+    </div>
     <header>
         <nav>
             <ul>
@@ -45,10 +54,6 @@
 
                 <label for="box-color">Choose Box Color for this Task</label>
                 <input type="color" name="box-color" id="box-color">
-
-
-                <label for="cover-image">Choose cover Image</label>
-                <input type="file" src="" alt="" name="cover-image" id="cover-image" accept="image/*">
 
                 <label for="task-progress">Task Progress ( <span id="slider-output">0%</span> )</label>
                 <input type="range" name="task-progress" id="task-progress" min="0" max="100">
@@ -96,10 +101,6 @@
         </form>
     </main>
 
-    <div class="success-card none">
-        <img src="img/check.png" alt="">
-        <p>Successfully Added</p>
-    </div>
     <div class="error-card none">
         <img src="img/cross.png" alt="">
         <p>Error</p>
