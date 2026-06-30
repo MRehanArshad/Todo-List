@@ -4,10 +4,12 @@
     --blue-border: blue;
     --black-border: black;
     --coral-blue: #5d8dff;
-    --add-btn: #149522;
+    --dark-green: darkgreen;
+    --light-green: #10d627;
+    --add-btn: var(--blue-primary);
     --view-detail-btn: #ffcb00;
     --edit-btn: #ed2222;
-    --hover-add-btn: #10d627;
+    --hover-add-btn: #c0ddfa;
     --success: #10d640;
     --error: #ed2130;
 }
@@ -25,6 +27,9 @@ header {
     background-color: var(--blue-primary);
     color: var(--white-primary);
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 header nav ul li a {
@@ -33,50 +38,53 @@ header nav ul li a {
     font-weight: 600;
 }
 
-main {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    gap: 1rem;
-}
-
-
 .search {
     height: 50px;
     border-radius: 10px;
 }
 
 #search-bar {
-    height: 100%;
+    margin-right: auto;
+    text-align: center;
+    height: 70%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 100px;
     outline: none;
-    border: 2px solid var(--black-border);
+    border: 0px;
     padding: 10px;
     font-size: 15px;
-    transition: all 0.3s ease;
-}
+    transition: all 0.3s ease;}
 
 #search-bar:focus{
     border: 2px solid var(--blue-border);
 }
+main {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    gap: 0rem;
+}
+
+
 
 .todo-container {
     height: 70vh;
     background-color: var(--coral-blue);
     border-radius: 10px;
-    padding: 4px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 0rem;
 }
 
 #todo-viewer {
     height: 60vh;
     border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     overflow-y: scroll;
     background-color: var(--white-primary);
     padding: 4px;
@@ -86,7 +94,13 @@ main {
     grid-row-gap: 5px;
 }
 
-.add-button a {
+.add-button {
+    display: flex;
+    margin-top: 10px;
+    gap: 60.4%;
+}
+
+#create-task-btn {
     text-decoration: none;
     color: var(--white-primary);
     font-weight: 700;
@@ -95,8 +109,14 @@ main {
     width: 130px;
     padding:10px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+#create-task-btn:hover {
+    background-color: var(--hover-add-btn);
+    transition: all 0.3s ease;
+    color: var(--dark-green);
 }
 
 .task {
@@ -109,6 +129,7 @@ main {
     flex-direction: column;
     gap: 3px;
     width: 100%; 
+    padding: 1rem;
 }
 
 .view-detail-btn {
@@ -127,4 +148,29 @@ main {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0px;
+  align-self: flex-end;
+  margin-right: auto;
+}
+
+.pagination li a {
+  display: block; /* let links fill the list item */
+  padding: 10px 12px;
+  text-decoration: none;
+  border: 0px;
+  color: black;  
+  margin: 0 4px;
+  border-radius: 5px; /* add rounded borders */
+  background-color: var(--white-primary);
+}
+
+.pagination li a:hover {
+  background-color: var(--blue-border);
+  color: var(--white-primary);
 }
