@@ -1,6 +1,6 @@
 // Getting Id of the New Task
 function getId(taskList) {
-    if (taskList.length == 0) 
+    if (taskList.length == 0)
         return 1;
     return Number(taskList.length) + 1;
 }
@@ -36,7 +36,7 @@ function getPriority() {
     }
 }
 
-document.getElementById('submit').addEventListener('click', (e)=> {
+document.getElementById('submit').addEventListener('click', (e) => {
     e.preventDefault();
 
     // Getting the Primary details
@@ -48,13 +48,12 @@ document.getElementById('submit').addEventListener('click', (e)=> {
     //Getting the Secondary details
     const email_input = document.getElementById('email-input');
     const boxColor = document.getElementById('box-color');
-    const coverImage = document.getElementById('cover-image');
     const taskProgress = document.getElementById('task-progress');
 
     // Getting the Additional details
     const mobileNumber = document.getElementById('mobile-number');
     const relatedLink = document.getElementById('related-link');
-    
+
     let notificationMethod = getNotificationMethod();
     let priority = getPriority();
 
@@ -66,7 +65,6 @@ document.getElementById('submit').addEventListener('click', (e)=> {
         dueDate: dueDate.value,
         email: email_input.value,
         boxColor: boxColor.value,
-        coverImage: coverImage.value,
         taskProgress: taskProgress.value,
         mobileNumber: mobileNumber.value,
         relatedLink: relatedLink.value,
@@ -79,17 +77,10 @@ document.getElementById('submit').addEventListener('click', (e)=> {
     // Write to Local Storage
     writeToLocalStorage(Task);
 
-    document.getElementsByClassName("success-card")[0].classList.toggle('none');
+    let successModal = document.getElementById('success');
+    successModal.classList.remove('none');
 
-    // let promise = new Promise(function(resolve, reject) {
-    //     setTimeout(()=>resolve("done"), 1000);
-    // })
-
-    // promise.then(
-    //     result=>{document.getElementsByClassName("success-card")[0].classList.toggle('none');}
-    // )
-
-    // document.getElementsByTagName('form')[0].reset();
+    document.getElementsByTagName('form')[0].reset();
 });
 
 document.getElementById('task-progress').addEventListener('input', () => {
@@ -99,3 +90,12 @@ document.getElementById('task-progress').addEventListener('input', () => {
     val.textContent = slider_input + "%";
 });
 
+document.getElementById('add-another-btn').addEventListener('click', () => {
+    let successModal = document.getElementById('success');
+    successModal.style = "display: none";
+
+});
+
+document.getElementById('go-back-btn').addEventListener('click', () => {
+    window.location.href = '../index.html';
+});
