@@ -1,22 +1,16 @@
 let todo_viewer = document.getElementById('todo-viewer');
-let task_list = [];
 
-Object.keys(localStorage).forEach(key => {
-    console.log(typeof(key))
-    if (!(key == "Last Key" || key == "click-id")) {
-        task_list.push(JSON.parse(localStorage.getItem(key)))
-    } 
-})
+// Getting items from local Storage
+let task_list = JSON.parse(localStorage.getItem('taskList')) || [];
 
 // For Searching
-
 document.getElementById('search-bar').addEventListener('input', () => {
     let search_input = document.getElementById('search-bar').value;
     let search_result = [];
     search_result.push(task_list[0]);
-    
+
     for (let i = 1; i < task_list.length; i++) {
-        if(task_list[i]['name'].toLowerCase().includes(search_input.toLowerCase())) {
+        if (task_list[i]['name'].toLowerCase().includes(search_input.toLowerCase())) {
             search_result.push(task_list[i]);
         }
     }
@@ -26,10 +20,9 @@ document.getElementById('search-bar').addEventListener('input', () => {
 
 
 // For Displaying Todo
-
 function getTaskElement(Task) {
     return `
-    <div class="task">
+    <div class="task" style="border: ${Task.boxColor} 20px solid;">
         <div class='title'>
             <h3>${Task["name"]}</h3>
         </div>
@@ -50,23 +43,41 @@ function getTaskElement(Task) {
 }
 
 function show_details(id) {
-    localStorage.setItem('click-id', id);
-    window.location.href = '../details.html';
+    window.location.href = `../details.html?taskId=${id}`;
 }
 
 function edit_task(id) {
-    localStorage.setItem('click-id', id);
-    window.location.href = '../update.html';
+    window.location.href = `../update.html?taskId=${id}`;
 }
-
 
 function display_item(task_list) {
-    console.log(task_list)
+    console.log(task_list);
     todo_viewer.innerHTML = "";
+    let page_num = parseInt(document.getElementById('current-page').innerText);
+    console.log(page_num);
 
-    for (let i = 1; i < task_list.length; i++) {
-        todo_viewer.innerHTML += getTaskElement(task_list[i]);
+    for (let i = 0; i < 9; i++) {
+        if (i + (page_num - 1) * 8 > task_list.length - 1) {
+            break;
+        }
+        todo_viewer.innerHTML += getTaskElement(task_list[i + (page_num - 1) * 8]);
     }
 }
+
+document.getElementById('next-page').addEventListener('click', () => {
+    let page_num = parseInt(document.getElementById('current-page').innerText);
+    if ((task_list.length - (page_num * 9) >= 0)) {
+        document.getElementById('current-page').innerText = page_num + 1;
+    }
+    display_item(task_list);
+});
+
+document.getElementById('prev-page').addEventListener('click', () => {
+    let page_num = parseInt(document.getElementById('current-page').innerText);
+    if (page_num > 1) {
+        document.getElementById('current-page').innerText = page_num - 1;
+    }
+    display_item(task_list);
+});
 
 display_item(task_list);
