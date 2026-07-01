@@ -1,0 +1,87 @@
+:root {
+    --blue-primary: #302dad;
+
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: url('../img/hero-bg.jpg');
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    background: rgba(170, 170, 248, 0.15);
+    backdrop-filter: blur(10px);
+    border: black 0px solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30%;
+    border: 2px rgb(115, 183, 255) solid;
+    border-radius: 30px;
+    padding: 2rem;
+    margin-top: 12vh;
+    height: 60vh;
+}
+
+form h1 {
+    align-self: center;
+    margin-bottom: 15%;
+    font-size: 5vh;
+    color: #343369;
+}
+
+form p a {
+    color: white;
+}
+
+form p a:hover {
+    color: rgb(147, 147, 238);
+}
+
+.text-input {
+    height: 1.5rem;
+    border-radius: 9px;
+    padding: 1%;
+    padding-left: 3%;
+    width: 90%;
+    align-self: center;
+    border: 0px solid;
+}
+
+.text-input:focus-visible {
+    border: 1px solid var(--blue-primary);
+    transform: scale(1.02);
+    transition: ease 0.2s;
+}
+
+.submit-btn {
+    align-self: center;
+    text-align: center;
+    height: 5vh;
+    width: 80%;
+    border-radius: 1000px;
+    margin-top: 5%;
+    font-size: large;
+}
+
+.submit-btn:hover {
+    background-color: var(--blue-primary);
+    border: 0px solid rgb(0, 0, 0);
+    color: white;
+    transition: ease 0.2s;
+}
