@@ -30,18 +30,18 @@
     <main>
         <form id="details-form">
             <div id="primary-details" class="details-box">
-                <h2>Primary Details</h2>
-                <label for="todo-name">Name </label>
+                <h2>Primary Details </h2>
+                <label for="todo-name">Name<span class="required">*</span> </label>
                 <input type="text" name="todo-name" id="todo-name" placeholder="Enter Task Name" required>
 
                 <label for="todo-desc">Description </label>
                 <textarea name="todo-desc" id="todo-description"
                     placeholder="(Optional) Enter Additional Details"></textarea>
 
-                <label for="start-date">Start Date</label>
+                <label for="start-date">Start Date<span class="required">*</span> </label>
                 <input type="date" name="start-date" id="start-date" required>
 
-                <label for="due-date">Due Date</label>
+                <label for="due-date">Due Date<span class="required">*</span> </label>
                 <input type="date" name="due-date" id="due-date" required>
             </div>
 
