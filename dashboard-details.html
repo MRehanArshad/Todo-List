@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App | Dashboard Data Page</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Todo App</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="search" id="search-bar" placeholder="Enter something to search....">
+        </div>
+        <div class="logout">
+            <button id="logout-btn" class="logout-btn">📤 Logout</button>
+        </div>
+    </header>
+    <main class="hero-section">
+        <div class="sidebar-section">
+            <h2>Navigation</h2>
+            <ul class="sidebar-tabs">
+                <li class="sidebar-item">
+                    <a href="dashboard.html">Analytics Page</a>
+                </li>
+                <li class="sidebar-item active">
+                    <a href="dashboard-details.html">Data Page</a>
+                </li>
+            </ul>
+        </div>
+        <div class="analytics-section">
+            <h1>Data Section</h1>
+            <h2>Tasks Data</h2>
+            <hr>
+            <div class="data-table">
+                <table id="users-data">
+                    <thead>
+                        <th>No.</th>
+                        <th>Task Title</th>
+                        <th>Author</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody id="tasks-data-content">
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Wash Hands</td>
+                            <td>
+                                <button class="view-detail-btn" onclick="show_details();"> View Details
+                                </button>
+                                <button class="edit" onclick="edit_task()"> Edit Task </button>
+                                <button class="delete" onclick="confirmDelete()"> Delete </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Users Data</h2>
+            <hr>
+            <div class="data-table">
+                <table id="tasks-data">
+                    <thead>
+                        <th>No.</th>
+                        <th>Username</th>
+                        <th>Task Count</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody id="users-data-content">
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Faizan</td>
+                            <td>10</td>
+                            <td><button class="delete" onclick="confirmDelete()"> Delete </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="js/dashboard.js"></script>
+
+</html>
