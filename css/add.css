@@ -172,3 +172,8 @@ input[type="radio"] {
     transition: all 0.3s ease;
     color: var(--dark-green);
 }
+
+.required {
+    color: red;
+    font-size: 20px;
+}

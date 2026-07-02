@@ -10,8 +10,13 @@
 body {
     background: url('../img/hero-bg.jpg');
     position: fixed;
-    background-size: cover;
     background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 1368px) and (max-width: 1920px) {
+    body {
+        background-size: cover;
+    }
 }
 
 main {
@@ -46,7 +51,7 @@ form h1 {
 }
 
 form p a {
-    color: white;
+    color: rgb(3, 110, 210);
 }
 
 form p a:hover {
