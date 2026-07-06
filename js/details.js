@@ -15,6 +15,7 @@ function showTaskDetails() {
     const urlParams = new URLSearchParams(queryString);
     const taskId = urlParams.get('taskId');
 
+    console.log(taskId);
     let object = JSON.parse(localStorage.getItem("taskList")).filter(task => task.id === Number(taskId))[0];
     title.innerHTML = object['name'];
     description.innerHTML = object['description'];
@@ -28,6 +29,19 @@ function showTaskDetails() {
     notification.innerHTML = object['notificationMethod'];
 
 }
+
+function homePage(){
+    let homepage = document.getElementById('homepage');
+
+    if(localStorage.getItem('userRole') == 'user'){
+        homepage.href = '../index.html';
+    }
+    else{
+        homepage.href = '../dashboard.html';
+    }
+}
+
+homePage();
 
 showTaskDetails();
 
