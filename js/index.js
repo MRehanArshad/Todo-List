@@ -1,26 +1,32 @@
 let todo_viewer = document.getElementById('todo-viewer');
-
-// Getting items from local Storage
 let task_list = JSON.parse(localStorage.getItem('taskList')) || [];
 
 // For Searching
-document.getElementById('search-bar').addEventListener('input', () => {
-    let search_input = document.getElementById('search-bar').value;
-    let search_result = [];
-    search_result.push(task_list[0]);
+document.getElementById('search-bar').addEventListener('input', search);
 
-    for (let i = 1; i < task_list.length; i++) {
-        if (task_list[i]['name'].toLowerCase().includes(search_input.toLowerCase())) {
-            search_result.push(task_list[i]);
-        }
-    }
+function search() {
+    const search_input = document.getElementById('search-bar').value.trim().toLowerCase();
+    const author = getSession();
+    const filtered = task_list.filter(task =>
+        task.author === author && task.name.toLowerCase().includes(search_input)
+    );
 
-    display_item(search_result);
-})
+    document.getElementById('current-page').innerText = '1';
+    display_item(filtered);
+}
 
+function delete_task(id) {
+    task_list = task_list.filter(task => task.id !== id);
+    localStorage.setItem('taskList', JSON.stringify(task_list));
+
+    display_item(task_list.filter(task => task.author === getSession()));
+}
 
 // For Displaying Todo
 function getTaskElement(Task) {
+    if (!Task) {
+        return '';
+    }
     return `
     <div class="task" style="border: ${Task.boxColor} 20px solid;">
         <div class='title'>
@@ -37,14 +43,13 @@ function getTaskElement(Task) {
         <div class="view-detail">
             <button class="view-detail-btn" onclick="show_details(${Task['id']});"> View Details </button>
             <button class="edit" onclick="edit_task(${Task['id']})"> Edit Task </button>
-            <button class="delete" onclick="delete_task(${Task['id']})"> Delete </button>
+            <button class="delete" onclick="confirmDelete(${Task['id']})"> Delete </button>
         </div>
     </div>
     `;
 }
 
-// To get the session details
-function getSession(){
+function getSession() {
     const username = localStorage.getItem('authToken');
     return username;
 }
@@ -57,16 +62,6 @@ function edit_task(id) {
     window.location.href = `../update.html?taskId=${id}`;
 }
 
-function delete_task(id) {
-    if (!confirm('Delete this task permanently?')) {
-        return;
-    }
-
-    task_list = task_list.filter(task => task.id !== id);
-    localStorage.setItem('taskList', JSON.stringify(task_list));
-    display_item(task_list);
-}
-
 function logout() {
     localStorage.removeItem('authToken');
     localStorage.removeItem('userRole');
@@ -76,25 +71,31 @@ function logout() {
 document.getElementById('logout-btn').addEventListener('click', logout);
 
 function display_item(task_list) {
+    if(task_list.length === 0) { 
+        todo_viewer.innerHTML = `<div class="no-tasks">No tasks found</div>`;
+        return;
+    }
     console.log(task_list);
     todo_viewer.innerHTML = "";
-    let page_num = parseInt(document.getElementById('current-page').innerText);
-    console.log(page_num);
     let author = getSession();
+    task_list = task_list.filter(task => task.author === author);
+    let page_num = parseInt(document.getElementById('current-page').innerText);
 
     for (let i = 0; i < 9; i++) {
-        if (i + (page_num - 1) * 8 > task_list.length - 1) {
-            break;
+        if (i + (page_num - 1) * 9 > task_list.length) {
+            continue;
         }
-        let Task = task_list[i + (page_num - 1) * 8];
-        if(Task.author !== author){
-            break;
-        }
-        todo_viewer.innerHTML += getTaskElement(Task);
+        todo_viewer.innerHTML += getTaskElement(task_list[i + (page_num - 1) * 9]);
     }
 }
 
-function validateSession(){
+function confirmDelete(id) {
+    if (confirm("Are you sure you want to delete this task?")) {
+        delete_task(id);
+    }
+}
+
+function validateSession() {
     if (!(Boolean(getSession()) && (localStorage.getItem('userRole')) === 'user')) {
         document.documentElement.innerHTML = "";
         alert("You are not authorized to view this Page");
@@ -103,20 +104,26 @@ function validateSession(){
 }
 
 document.getElementById('next-page').addEventListener('click', () => {
+    const author = getSession();
+    const authorTasks = task_list.filter(task => task.author === author);
+    console.log(authorTasks);
     let page_num = parseInt(document.getElementById('current-page').innerText);
-    if ((task_list.length - (page_num * 9) >= 0)) {
+    const totalPages = Math.ceil(authorTasks.length / 9) || 1;
+
+    if (page_num < totalPages) {
         document.getElementById('current-page').innerText = page_num + 1;
+        display_item(task_list);
     }
-    display_item(task_list);
 });
 
 document.getElementById('prev-page').addEventListener('click', () => {
     let page_num = parseInt(document.getElementById('current-page').innerText);
     if (page_num > 1) {
         document.getElementById('current-page').innerText = page_num - 1;
+        display_item(task_list);
     }
-    display_item(task_list);
 });
 
 validateSession();
-display_item(task_list);
+console.log(task_list);
+display_item(task_list.filter(task => task.author === getSession()));
