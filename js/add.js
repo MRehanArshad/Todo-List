@@ -1,15 +1,42 @@
+function validateInput() {
+    if(document.getElementById('todo-name').value == "" || document.getElementById('start-date').value == "" || document.getElementById('due-date').value == ""){
+        alert("Please fill in all required fields.");
+        return false;
+    }
+    return true;
+}
+
+function validateDate() {
+    const startDate = new Date(document.getElementById('start-date').value);
+    const dueDate = new Date(document.getElementById('due-date').value);
+
+    if (startDate > dueDate) {
+        alert("Start date cannot be later than due date.");
+        return false;
+    }
+    return true;
+}
+
 // Getting Id of the New Task
-function getId(taskList) {
+function getId() {
+    let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
     if (taskList.length == 0)
         return 1;
     return Number(taskList.length) + 1;
 }
 
+// To get the session details
+function getSession(){
+    const username = localStorage.getItem('authToken');
+    return username;
+}
+
 // For Writing to Local Storage
 function writeToLocalStorage(Task) {
     let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
-    id = getId(taskList);
+    let id = getId();
     Task["id"] = id;
+    Task['author'] = getSession();
     taskList.push(Task);
     localStorage.setItem('taskList', JSON.stringify(taskList));
 }
@@ -38,7 +65,9 @@ function getPriority() {
 
 document.getElementById('submit').addEventListener('click', (e) => {
     e.preventDefault();
-
+    if(!validateInput()){
+        return;
+    }
     // Getting the Primary details
     const todoName = document.getElementById('todo-name');
     const description = document.getElementById('todo-description');
@@ -74,6 +103,10 @@ document.getElementById('submit').addEventListener('click', (e) => {
 
     console.log(Task);
 
+    if(!validateDate()) {
+        return;
+    }
+
     // Write to Local Storage
     writeToLocalStorage(Task);
 
@@ -92,7 +125,7 @@ document.getElementById('task-progress').addEventListener('input', () => {
 
 document.getElementById('add-another-btn').addEventListener('click', () => {
     let successModal = document.getElementById('success');
-    successModal.style = "display: none";
+    successModal.classList.add('none');
 
 });
 
